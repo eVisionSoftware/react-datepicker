@@ -24,7 +24,9 @@ export default class MonthYearDropdown extends React.Component {
     minDate: PropTypes.object.isRequired,
     date: PropTypes.object.isRequired,
     onChange: PropTypes.func.isRequired,
-    scrollableMonthYearDropdown: PropTypes.bool
+    scrollableMonthYearDropdown: PropTypes.bool,
+    onBeforeShow: PropTypes.func,
+    onAfterShow: PropTypes.func
   };
 
   state = {
@@ -128,10 +130,17 @@ export default class MonthYearDropdown extends React.Component {
     this.props.onChange(changedDate);
   };
 
-  toggleDropdown = () =>
+  toggleDropdown = () => {
+    if (!this.state.dropdownVisible) {
+      this.props.onBeforeShow();
+    } else {
+      this.props.onAfterShow();
+    }
+
     this.setState({
       dropdownVisible: !this.state.dropdownVisible
     });
+  };
 
   render() {
     let renderedDropdown;

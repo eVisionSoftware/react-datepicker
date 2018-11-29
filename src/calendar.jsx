@@ -480,7 +480,7 @@ export default class Calendar extends React.Component {
         maxDate={this.props.maxDate}
         date={this.state.date}
         scrollableMonthYearDropdown={this.props.scrollableMonthYearDropdown}
-        onBeforeShow={() => console.log("onBeforeShow")}
+        onBeforeShow={() => this.props.disableOnClickOutside()}
         onAfterShow={() => this.props.enableOnClickOutside()}
       />
     );
