@@ -57,20 +57,13 @@ export default class MonthYearDropdownOptions extends React.Component {
         <div
           className={
             isSameMonthYear
-              ? "react-datepicker__month-year-option --selected_month-year"
+              ? "react-datepicker__month-year-option--selected_month-year"
               : "react-datepicker__month-year-option"
           }
           key={monthYearPoint}
           ref={monthYearPoint}
           onClick={this.onChange.bind(this, monthYearPoint)}
         >
-          {isSameMonthYear ? (
-            <span className="react-datepicker__month-year-option--selected">
-              ✓
-            </span>
-          ) : (
-            ""
-          )}
           {formatDate(monthYear, this.props.dateFormat)}
         </div>
       );

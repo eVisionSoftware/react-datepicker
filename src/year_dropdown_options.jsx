@@ -64,11 +64,6 @@ export default class YearDropdownOptions extends React.Component {
         ref={year}
         onClick={this.onChange.bind(this, year)}
       >
-        {selectedYear === year ? (
-          <span className="react-datepicker__year-option--selected">✓</span>
-        ) : (
-          ""
-        )}
         {year}
       </div>
     ));
